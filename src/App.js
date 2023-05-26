@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { list, list2 } from "./assets/cards-list";
+import Cards from "./components/Cards";
+import Filter from "./components/Filter";
+import Header from "./components/Header";
 
 function App() {
+  const [selectedFilter, setSelectedFilter] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Filter
+        selectedFilter={selectedFilter}
+        setSelectedFilter={setSelectedFilter}
+      />
+      {selectedFilter == 0 ? <Cards list={list} /> : <Cards list={list2} />}
     </div>
   );
 }
