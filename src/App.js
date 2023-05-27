@@ -17,9 +17,9 @@ function App() {
       />
       {(() => {
                 switch(selectedFilter) {
-                  case 1: return <Cards list={list} />;
-                  case 2: return <Cards list={list2} />;
-                  case 3: return <Cards list={list3} />;
+                  case 0: return <Cards list={list} />;
+                  case 1: return <Cards list={list2} />;
+                  case 2: return <Cards list={list3} />;
                   default: return <Cards list={list4}/>;
                 }
             })()}
