@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import { list, list2 } from "./assets/cards-list";
+import { list, list2 ,list3,list4} from "./assets/cards-list";
 import Cards from "./components/Cards";
 import Filter from "./components/Filter";
 import Header from "./components/Header";
+// import { Card } from "@mui/material";
 
 function App() {
   const [selectedFilter, setSelectedFilter] = useState(0);
@@ -14,7 +15,16 @@ function App() {
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
       />
-      {selectedFilter === 0 ? <Cards list={list} /> : <Cards list={list2} />}
+      {(() => {
+                switch(selectedFilter) {
+                  case 1: return <Cards list={list} />;
+                  case 2: return <Cards list={list2} />;
+                  case 3: return <Cards list={list3} />;
+                  default: return <Cards list={list4}/>;
+                }
+            })()}
+      {/* {selectedFilter === 0 ? <Cards list={list} /> : <Cards list={list2} />}
+      {selectedFilter === 2 ? <Cards list={list3} /> : <Cards list={list4} />} */}
     </div>
   );
 }

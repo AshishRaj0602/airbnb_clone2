@@ -11,6 +11,7 @@ function Filter({ selectedFilter, setSelectedFilter }) {
           className={`links-box ${i === selectedFilter && "selected-box"}`}
           onClick={() => {
             setSelectedFilter(i);
+            // console.log(i ,typeof i);
           }}
         >
           <img src={item.imgSrc} className="links-img" alt=""/>
